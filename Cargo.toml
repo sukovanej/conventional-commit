@@ -1,5 +1,5 @@
 [package]
-name = "conventional-commit"
+name = "git-conventional-commit"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,3 +7,6 @@ edition = "2021"
 
 [dependencies]
 clap = "3.0.0-beta.5"
+
+[[bin]]
+name = "git-conventional-commit"

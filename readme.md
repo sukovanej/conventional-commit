@@ -3,6 +3,13 @@
 A git subcommand for easy convetional commits.
 
 
+## Installation
+
+ - `git clone` this repository
+ - use `make install` to build and install the binary
+ - add the `.cargo/bin` path to your `PATH` env variable
+
+
 ## Examples
 
 ```bash
