@@ -1,6 +1,6 @@
 use clap::Parser;
 
-use crate::{commit_message::CommitMessageInput, emoji::COMMIT_TYPES};
+use crate::{commit_message::CommitMessageInput, config::Config, emoji::COMMIT_TYPES};
 
 #[derive(Parser, Debug)]
 #[clap(version = "0.1", author = "Milan Suk <Milansuk@email.cz>")]
@@ -31,7 +31,7 @@ pub struct Opts {
         takes_value = false,
         about = "If turned on, an emoji will be used instead of name of the commit type"
     )]
-    pub emoji: bool,
+    pub emoji: Option<bool>,
 
     #[clap(
         short,
@@ -51,10 +51,10 @@ pub struct Opts {
 }
 
 impl Opts {
-    pub fn to_commit_message_input(&self) -> CommitMessageInput {
+    pub fn to_commit_message_input(&self, config: Config) -> CommitMessageInput {
         CommitMessageInput {
             message: self.message.clone(),
-            emoji: self.emoji,
+            emoji: self.emoji.unwrap_or(config.emoji),
             commit_type: self.commit_type.clone(),
             scope: self.scope.clone(),
             issue: self.issue.clone(),
