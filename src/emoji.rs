@@ -1,9 +1,9 @@
-pub const COMMIT_TYPES: [&'static str; 11] = [
+pub const COMMIT_TYPES: [&str; 11] = [
     "build", "chore", "ci", "docs", "feat", "fix", "perf", "refactor", "revert", "style", "test",
 ];
 
-pub fn commit_type_to_emoji(commit_type: &String) -> &'static str {
-    match (*commit_type).as_str() {
+pub fn commit_type_to_emoji(commit_type: &str) -> &'static str {
+    match commit_type {
         "build" => ":construction_worker:",
         "chore" => ":gear:",
         "ci" => ":rocket:",
