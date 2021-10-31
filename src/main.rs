@@ -1,13 +1,13 @@
-mod git;
-mod commit_message;
 mod cli;
+mod commit_message;
 mod emoji;
+mod git;
 
 use clap::Parser;
 
+use cli::Opts;
 use commit_message::create_commit_message;
 use git::git_commit;
-use cli::Opts;
 
 fn main() {
     let opts: Opts = Opts::parse();

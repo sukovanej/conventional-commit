@@ -22,7 +22,8 @@ pub fn create_commit_message(opts: &CommitMessageInput) -> String {
         (Some(scope), true) => format!(" {}:", scope),
         (None, false) => ":".to_string(),
         (None, true) => "".to_string(),
-    }.as_str();
+    }
+    .as_str();
 
     commit_message += format!(" {}", &opts.message).as_str();
 
