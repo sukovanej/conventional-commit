@@ -18,6 +18,16 @@ git config --global alias.cc conventional-commit
 
 Now you can call the command using `git cc <args>`.
 
+## Configuration
+
+Put **convetional_commit.toml** into the project root directory.
+
+```toml
+emoji = true
+```
+
+This configuration makes the command use emoji by default.
+
 ## Examples
 
 ```bash
