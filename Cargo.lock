@@ -57,7 +57,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "conventional-commit"
+name = "git-conventional-commit"
 version = "0.1.0"
 dependencies = [
  "clap",
