@@ -5,11 +5,11 @@ use crate::{commit_message::CommitMessageInput, config::Config, emoji::COMMIT_TY
 #[derive(Parser, Debug)]
 #[clap(version = "0.1", author = "Milan Suk <Milansuk@email.cz>")]
 pub struct Opts {
-    #[clap(short, long, about = "Commit message")]
-    pub message: String,
-
-    #[clap(short='t', long, possible_values=COMMIT_TYPES)]
+    #[clap(possible_values=COMMIT_TYPES, index=1, required=true)]
     pub commit_type: String,
+
+    #[clap(short, long, about = "Commit message", required = true)]
+    pub message: String,
 
     #[clap(
         short,

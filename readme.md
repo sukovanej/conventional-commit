@@ -32,19 +32,19 @@ This configuration makes the command use emoji by default.
 
 ```bash
 # commit a fix with a message
-$ git conventional-commit -am "replace everything with rust" -t fix
+$ git cc fix -am "replace everything with rust"
 fix: replace everything with rust
 
 # commit a fix with a message and the scope
-$ git conventional-commit -am "hello world" -t feat -s "my-package"
+$ git cc feat -am "hello world" -s "my-package"
 feat(my-package): hello world
 
 # commit a fix (displayed as a github emoji) with a message and the scope
-$ git conventional-commit -aem "hello world" -t feat -s "my-package"
+$ git cc feat -aem "hello world" -s "my-package"
 :sparkles: my-package: hello world
 
 # commit a fix (displayed as a github emoji) with a message and the scope and include the issue number
-$ git conventional-commit -aem "hello world" -t feat -s "my-package" -i "#12"
+$ git cc feat -aem "hello world" -s "my-package" -i "#12"
 :sparkles: my-package: hello world (#12)
 ```
 
@@ -56,17 +56,20 @@ git-conventional-commit 0.1
 Milan Suk <Milansuk@email.cz>
 
 USAGE:
-    git-conventional-commit [OPTIONS] --message <MESSAGE> --commit-type <COMMIT_TYPE>
+    git-conventional-commit [OPTIONS] --message <MESSAGE> <COMMIT_TYPE>
+
+ARGS:
+    <COMMIT_TYPE>    [possible values: build, chore, ci, docs, feat, fix, perf, refactor,
+                     revert, style, test]
 
 OPTIONS:
-    -a, --add-all-files                
-    -d, --dry-run                      
-    -e, --emoji                        
-    -h, --help                         Print help information
-    -i, --issue <ISSUE>                
-    -m, --message <MESSAGE>            
-    -s, --scope <SCOPE>                
-    -t, --commit-type <COMMIT_TYPE>    [possible values: build, chore, ci, docs, feat, fix, perf,
-                                       refactor, revert, style, test]
-    -V, --version                      Print version information
+    -a, --add-all-files        -a option for the git commit command
+    -d, --dry-run              Don't do the commit, only show the commit message
+    -e, --emoji                If turned on, an emoji will be used instead of name of the commit
+                               type
+    -h, --help                 Print help information
+    -i, --issue <ISSUE>        Identifier of the github issue / jira issue / ...
+    -m, --message <MESSAGE>    Commit message
+    -s, --scope <SCOPE>        Optional information specifying the section of the codebase
+    -V, --version              Print version information
 ```
